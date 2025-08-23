@@ -10,7 +10,7 @@ export default class AuthenticationService {
   public async login({ email, password }: LoginDTO) : Promise<string> {
     const user = await this.findUserByEmail(email as string)
 
-    this.verifyPassword(password, user.password)
+    this.verifyPassword(password as string, user.password)
     
     // generate token
     const token = JWTService.generateToken({email: user.email, id: user.id})
@@ -25,7 +25,7 @@ export default class AuthenticationService {
     return user
   }
 
-  public verifyPassword(password, hashPassword) : void {
+  public verifyPassword(password: string, hashPassword: string) : void {
     if(!compareSync(password as string, hashPassword))
       throw new Error("Invalid credentials!");
   }
