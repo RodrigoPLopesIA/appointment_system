@@ -24,8 +24,8 @@ async function bootstrap() {
 }
 AppDataSource.initialize()
   .then(async () => {
-    console.log("📦 Data Source inicializado");
+    console.log("📦 Data Source Running");
 
     bootstrap();
   })
-  .catch((error) => console.log("❌ Erro no Data Source", error));
+  .catch((error) => console.log("❌ Error on Data Source", error));
