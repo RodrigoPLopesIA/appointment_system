@@ -11,6 +11,11 @@ type Appointment {
   updatedAt: DateTimeISO!
 }
 
+input CreateAppointmentInput {
+  date: DateTimeISO!
+  description: String!
+}
+
 input CreateUserDTO {
   active: Boolean!
   email: String!
@@ -29,17 +34,26 @@ input LoginDTO {
 }
 
 type Mutation {
+  createAppointment(data: CreateAppointmentInput!): Appointment!
   createUser(data: CreateUserDTO!): User!
+  deleteAppointment(id: ID!): Boolean!
   login(data: LoginDTO!): Token!
+  updateAppointment(data: UpdateAppointmentInput!, id: ID!): Appointment
 }
 
 type Query {
-  getAppointments: User!
+  appointmentById(id: ID!): Appointment
   getUser(id: String!): User
+  myAppointments: [Appointment!]!
 }
 
 type Token {
   token: String!
+}
+
+input UpdateAppointmentInput {
+  date: DateTimeISO
+  description: String
 }
 
 type User {

@@ -1,4 +1,4 @@
-import { Field, InputType } from "type-graphql";
+import { InputType, Field } from "type-graphql";
 
 @InputType()
 export default class CreateAppointmentInput {
@@ -6,5 +6,5 @@ export default class CreateAppointmentInput {
   date: Date;
 
   @Field()
-  description?: string;
+  description: string;
 }
