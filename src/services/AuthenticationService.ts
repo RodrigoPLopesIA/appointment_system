@@ -1,7 +1,7 @@
 import { Repository } from "typeorm";
 import User from "../entity/User";
 import LoginDTO from "../dto/input/login.input";
-import { compareSync, hashSync } from "bcrypt";
+import { compareSync } from "bcrypt";
 import JWTService from "./JWTService";
 
 export default class AuthenticationService {
@@ -26,7 +26,7 @@ export default class AuthenticationService {
   }
 
   public verifyPassword(password, hashPassword) : void {
-    if(!hashSync(password as string, hashPassword))
+    if(!compareSync(password as string, hashPassword))
       throw new Error("Invalid credentials!");
   }
 }
