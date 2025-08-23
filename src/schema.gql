@@ -10,13 +10,23 @@ input CreateUserDTO {
   password: String!
 }
 
+input LoginDTO {
+  email: String!
+  password: String!
+}
+
 type Mutation {
   createUser(data: CreateUserDTO!): User!
+  login(data: LoginDTO!): Token!
 }
 
 type Query {
   getUser(id: String!): User
   getUsers: [User!]!
+}
+
+type Token {
+  token: String!
 }
 
 type User {

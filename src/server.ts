@@ -4,10 +4,11 @@ import UserResolver from "./resolvers/User.resolver";
 import { buildSchema } from "type-graphql";
 import path = require("node:path");
 import { AppDataSource } from "./data-source";
+import LoginResolver from "./resolvers/login.resolver";
 
 async function bootstrap() {
   const schema = await buildSchema({
-    resolvers: [UserResolver],
+    resolvers: [UserResolver, LoginResolver],
     emitSchemaFile: path.resolve(__dirname, "schema.gql"),
   });
 
