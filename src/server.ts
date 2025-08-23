@@ -6,6 +6,9 @@ import path = require("node:path");
 import { AppDataSource } from "./data-source";
 import LoginResolver from "./resolvers/login.resolver";
 import AppointmentResolver from "./resolvers/Appointments.resolver";
+import * as dotenv from "dotenv"
+
+dotenv.config()
 
 async function bootstrap() {
   const schema = await buildSchema({
