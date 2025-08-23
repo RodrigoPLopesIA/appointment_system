@@ -12,6 +12,8 @@ interface Context {
 }
 
 export const auth: MiddlewareFn<Context> = async ({ context }, next) => {
+  console.log(context);
+
   const authHeader = context.req.headers.authorization;
 
   if (!authHeader) {

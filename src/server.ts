@@ -5,14 +5,15 @@ import { buildSchema } from "type-graphql";
 import path = require("node:path");
 import { AppDataSource } from "./data-source";
 import LoginResolver from "./resolvers/login.resolver";
+import AppointmentResolver from "./resolvers/Appointments.resolver";
 
 async function bootstrap() {
   const schema = await buildSchema({
-    resolvers: [UserResolver, LoginResolver],
+    resolvers: [UserResolver, LoginResolver, AppointmentResolver],
     emitSchemaFile: path.resolve(__dirname, "schema.gql"),
   });
 
-  const server = new ApolloServer({ schema });
+  const server = new ApolloServer({ schema, context: ({ req }) => ({ req }) });
 
   const { url } = await server.listen();
 

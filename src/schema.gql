@@ -21,6 +21,7 @@ type Mutation {
 }
 
 type Query {
+  getAppointments: User!
   getUser(id: String!): User
 }
 
