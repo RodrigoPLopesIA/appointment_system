@@ -10,10 +10,6 @@ const userService = new UserService(AppDataSource.getRepository<UserEntity>(User
 @Resolver()
 export default class UserResolver {
 
-  @Query(() => [User])
-  public async getUsers(): Promise<User[]> {
-    return await userService.findAll();
-  }
 
   @Query(() => User, {
     nullable: true,
@@ -24,6 +20,6 @@ export default class UserResolver {
 
   @Mutation(() => User)
   public async createUser(@Arg("data") data: CreateUserDTO): Promise<User> {
-    return await userService.save(data as User);
+    return await userService.save(data as UserEntity);
   }
 }

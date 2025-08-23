@@ -1,5 +1,6 @@
 import { Repository } from "typeorm";
 import User from "../entity/User"
+import {hashSync} from "bcrypt"
 
 class UserService {
   constructor(private readonly userRepository: Repository<User>) {}
@@ -15,6 +16,9 @@ class UserService {
     });
   }
   public save(value: User): Promise<User> {
+
+    value.password = hashSync(value.password, 10)
+    
     return this.userRepository.save(value);
   }
   public update(id: string, data: User) {

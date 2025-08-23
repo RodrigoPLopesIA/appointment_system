@@ -8,6 +8,10 @@ export default class CreateUserDTO{
     @Field()
     email: String
 
+
+    @Field()
+    password: String 
+    
     @Field()
     active: Boolean
 }
