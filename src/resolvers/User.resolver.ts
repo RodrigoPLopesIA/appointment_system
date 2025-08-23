@@ -24,6 +24,6 @@ export default class UserResolver {
 
   @Mutation(() => User)
   public async createUser(@Arg("data") data: CreateUserDTO): Promise<User> {
-    return await userService.save(data as User);
+    return await userService.save(data as UserEntity);
   }
 }
