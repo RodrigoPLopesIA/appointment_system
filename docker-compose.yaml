@@ -1,0 +1,17 @@
+
+
+services:
+  database:
+    container_name: appointment_db
+    image: postgres
+    ports:
+      - 5433:5432
+    environment:
+      - POSTGRES_DB=appointment_db
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=root
+    volumes:
+      - appointment_db:/var/lib/postgresql/data
+
+volumes:
+  appointment_db:
