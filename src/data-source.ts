@@ -7,11 +7,11 @@ import { Appointment } from "./entity/Appointment";
 
 export const AppDataSource = new DataSource({
   type: "postgres",
-  host: "localhost",
-  port: 5433,
-  username: "root",
-  password: "root",
-  database: "appointment_db",
+  host: process.env.DATABASE_HOST || "localhost",
+  port: Number(process.env.DATABASE_PORT) || 5433,
+  username: process.env.DATABASE_USER || "root",
+  password: process.env.DATABASE_PASSWORD || "root",
+  database: process.env.DATABASE || "appointment_db",
   synchronize: false,
   logging: false,
   entities: [UserEntity, Appointment],
