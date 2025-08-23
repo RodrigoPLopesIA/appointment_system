@@ -16,7 +16,7 @@ input CreateAppointmentInput {
   description: String!
 }
 
-input CreateUserDTO {
+input CreateUserInput {
   active: Boolean!
   email: String!
   name: String!
@@ -28,16 +28,16 @@ A date-time string at UTC, such as 2007-12-03T10:15:30Z, compliant with the `dat
 """
 scalar DateTimeISO
 
-input LoginDTO {
+input LoginInput {
   email: String!
   password: String!
 }
 
 type Mutation {
   createAppointment(data: CreateAppointmentInput!): Appointment!
-  createUser(data: CreateUserDTO!): User!
+  createUser(data: CreateUserInput!): User!
   deleteAppointment(id: ID!): Boolean!
-  login(data: LoginDTO!): Token!
+  login(data: LoginInput!): Token!
   updateAppointment(data: UpdateAppointmentInput!, id: ID!): Appointment
 }
 
