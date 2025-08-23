@@ -22,7 +22,6 @@ type Mutation {
 
 type Query {
   getUser(id: String!): User
-  getUsers: [User!]!
 }
 
 type Token {
