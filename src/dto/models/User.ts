@@ -1,4 +1,5 @@
 import { Field, ID, ObjectType } from "type-graphql";
+import { Appointment } from "./Appointment";
 
 @ObjectType()
 export default class User {
@@ -10,7 +11,10 @@ export default class User {
 
   @Field()
   email: string;
-  
+
+  @Field(() => [Appointment])
+  appointments: [Appointment];
+
   @Field()
   active: boolean;
 }
