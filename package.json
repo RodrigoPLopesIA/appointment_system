@@ -4,7 +4,10 @@
    "license": "MIT",
    "scripts": {
       "start": "tsnd --respawn --transpile-only src/server.ts",
-      "typeorm": "typeorm-ts-node-commonjs"
+      "typeorm": "typeorm-ts-node-commonjs",
+      "list": "echo 'lint'",
+      "test": "echo 'test'",
+      "build": "tsc"
    },
    "devDependencies": {
       "@types/node": "^24.3.0",
