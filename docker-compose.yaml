@@ -1,15 +1,32 @@
-
+version: '3.9'
 
 services:
+  application:
+    container_name: system_appointment
+    build: 
+      context: .
+      dockerfile: Dockerfile  
+    ports:
+      - "4000:4000"
+    depends_on:
+      - database
+    environment:
+      - DATABASE_HOST=${DATABASE_HOST}
+      - DATABASE=${DATABASE}
+      - DATABASE_USER=${DATABASE_USER}
+      - DATABASE_PORT=${DATABASE_PORT}
+      - DATABASE_PASSWORD=${DATABASE_PASSWORD}
+      - JWT_SECRET=${JWT_SECRET}
+
   database:
     container_name: appointment_db
-    image: postgres
+    image: postgres:15-alpine 
     ports:
-      - 5433:5432
+      - "${DATABASE_PORT}:5432"
     environment:
-      - POSTGRES_DB=appointment_db
-      - POSTGRES_USER=root
-      - POSTGRES_PASSWORD=root
+      POSTGRES_DB: ${DATABASE}
+      POSTGRES_USER: ${DATABASE_USER}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
     volumes:
       - appointment_db:/var/lib/postgresql/data
 
