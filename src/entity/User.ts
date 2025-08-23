@@ -12,6 +12,9 @@ export default class User {
     @Column()
     email: string
 
+    @Column({nullable: false})
+    password: string
+
     @Column()
     active: boolean
 

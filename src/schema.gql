@@ -7,15 +7,26 @@ input CreateUserDTO {
   active: Boolean!
   email: String!
   name: String!
+  password: String!
+}
+
+input LoginDTO {
+  email: String!
+  password: String!
 }
 
 type Mutation {
   createUser(data: CreateUserDTO!): User!
+  login(data: LoginDTO!): Token!
 }
 
 type Query {
+  getAppointments: User!
   getUser(id: String!): User
-  getUsers: [User!]!
+}
+
+type Token {
+  token: String!
 }
 
 type User {
