@@ -22,7 +22,7 @@ services:
     container_name: appointment_db
     image: postgres:15-alpine 
     ports:
-      - "${DATABASE_PORT}:5432"
+      - "${DATABASE_PORT}:${DATABASE_PORT}"
     environment:
       POSTGRES_DB: ${DATABASE}
       POSTGRES_USER: ${DATABASE_USER}

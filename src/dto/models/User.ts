@@ -13,7 +13,7 @@ export default class User {
   email: string;
 
   @Field(() => [Appointment])
-  appointments: [Appointment];
+  appointments: Appointment[];
 
   @Field()
   active: boolean;

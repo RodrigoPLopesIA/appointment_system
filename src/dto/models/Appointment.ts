@@ -12,6 +12,10 @@ export class Appointment {
   @Field({ nullable: true })
   description?: string;
 
+  
+  @Field(() => User, { nullable: true })
+  user?: User;
+  
   @Field()
   createdAt: Date;
 
