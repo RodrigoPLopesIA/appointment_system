@@ -31,12 +31,12 @@ async function bootstrap() {
   app.use(
     "/graphql",
     cors({
-      origin: process.env.FRONTEND_HOST, 
+      origin: "*", 
       credentials: true,
     })
   );
 
-  server.applyMiddleware({ app, path: "/graphql", cors: false });
+  server.applyMiddleware({ app, path: "/graphql", cors: true });
 
   const PORT = process.env.PORT || 4000;
   app.listen(PORT, () => {

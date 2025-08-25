@@ -23,9 +23,9 @@ export const auth: MiddlewareFn<Context> = async ({ context }, next) => {
   const token = authHeader.replace("Bearer ", "");
 
   try {
-    const payload = JWTService.verifyToken(token) as { userId: string };
+    const payload = JWTService.verifyToken(token) as { id: string };
 
-    const user = await userService.findById(payload.userId);
+    const user = await userService.findById(payload.id);
 
     if (!user) {
       throw new Error("User not found");
@@ -35,6 +35,7 @@ export const auth: MiddlewareFn<Context> = async ({ context }, next) => {
 
     return next();
   } catch (err) {
+    console.log(err)
     throw new Error("Invalid or expired token");
   }
 };
