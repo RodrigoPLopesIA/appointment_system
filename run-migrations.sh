@@ -1,0 +1,1 @@
+docker exec system_appointment yarn typeorm migration:run -d dist/data-source.js

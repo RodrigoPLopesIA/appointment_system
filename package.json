@@ -5,12 +5,13 @@
    "scripts": {
       "start": "tsnd --respawn --transpile-only src/server.ts",
       "typeorm": "typeorm-ts-node-commonjs",
-      "list": "echo 'lint'",
+      "lint": "echo 'lint'",
       "test": "echo 'test'",
       "build": "tsc"
    },
    "devDependencies": {
       "@types/bcrypt": "^6.0.0",
+      "@types/dotenv": "^8.2.3",
       "@types/jsonwebtoken": "^9.0.10",
       "@types/node": "^24.3.0",
       "@types/prompt-sync": "^4.2.3",
@@ -22,6 +23,7 @@
       "apollo-server": "^3.13.0",
       "bcrypt": "^6.0.0",
       "class-validator": "^0.14.2",
+      "dotenv": "^17.2.1",
       "graphql": "^16.11.0",
       "graphql-scalars": "^1.24.2",
       "jsonwebtoken": "^9.0.2",
